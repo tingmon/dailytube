@@ -2,11 +2,13 @@ extends base.pug
 include mixins/video
 
 block content 
-    h2 Welcome to Dailytube, The Liberator of People from Youtube
+    h1 Welcome to Dailytube, The Liberator of People from Youtube!
     nav 
         ul 
             li 
                 a(href="/video/upload") Upload Video
+            li 
+                a(href="/search") Search
     ul
         each video in videos
             +videoGenerator(video)

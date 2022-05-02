@@ -1,7 +1,9 @@
 extends base.pug
 
 block content 
-    h4 Change Video Title
+    h4 Update Video
     form(method="POST")
-        input(name ="title", placeholder="Title", value=video.title, required)
+        input(name ="title", placeholder="Title", value=video.title, required, minlength= 2, maxlength= 50)
+        input(placeholder="Description", required, value=video.description,  type="text", name="description", minlength= 2 , maxlength= 150)
+        input(placeholder="Hashtags, using comma",value=video.hashtags.join(), required, type="text", name="hashtags")
         input(type="submit", value="Save")

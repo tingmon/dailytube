@@ -2,8 +2,9 @@ mixin videoGenerator(video)
     div 
         h4 
             a(href=`/video/${video.id}`)=video.title
-        ul 
-            li #{video.rating}/10
-            li #{video.comments} comments
-            li Posted #{video.createdAt}
-            li #{video.views} views
+        p=video.description
+        each hashtag in video.hashtags
+            span #{hashtag}, 
+        br
+        small=video.createdAt 
+        hr
