@@ -33,6 +33,8 @@ const videoSchema = new mongoose.Schema({
 	},
 });
 
+// We want to format hashtags both for upload and edit
+// So I use 'static' rather than 'pre'
 videoSchema.static("formatHashtags", function (hashtags) {
 	return hashtags.split(",").map((tag) => {
 		tag = tag.trim();

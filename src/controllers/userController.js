@@ -1,5 +1,20 @@
-export const userSignup = (req, res) => {
-	return res.send("Signup user");
+import User from "../models/User";
+
+export const signupGet = (req, res) => {
+	res.render("signup", { pageTitle: "Create Account" });
+};
+
+export const signupPost = async (req, res) => {
+	console.log(req.body);
+	const { name, username, email, password, loaction } = req.body;
+	await User.create({
+		name,
+		username,
+		email,
+		password,
+		loaction,
+	});
+	return res.redirect("/login");
 };
 
 export const userEdit = (req, res) => {
